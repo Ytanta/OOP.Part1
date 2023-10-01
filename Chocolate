@@ -1,0 +1,32 @@
+public class Chocolate extends Product {
+    private double calories; // Калории
+    private double cocoa; // Процент какао
+
+    public double getCalories() {
+        return calories;
+    }
+
+    public void setCalories(double calories) {
+        this.calories = calories;
+    }
+
+    public double getCocoa() {
+        return cocoa;
+    }
+
+    public void setCocoa(double cocoa) {
+        this.cocoa = cocoa;
+    }
+
+
+    public Chocolate(String brand, String name, double price, double calories, double cocoa){
+        super(brand, name, price);
+        this.calories = calories;
+        this.cocoa = cocoa;
+    }
+
+    @Override
+    public String displayInfo() {
+        return String.format("[ШОКОЛАД] %s - %s - %.2f - калории: %.2f; какао: %.2f", brand, name, price, calories, cocoa);
+    }
+}
