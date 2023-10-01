@@ -1,0 +1,53 @@
+import java.util.ArrayList;
+
+public class Program {
+
+    public static void main(String[] args) {
+
+        Product product1 = new Product("ООО Источник", "_", -200);
+        //product1.name = "Бутылка с водой (1)";
+        //product1.brand = "ООО Источник";
+
+        product1.setPrice(-10);
+        product1.setName("");
+
+        System.out.println(product1.displayInfo());
+
+        Product product2 = new Product();
+        System.out.println(product2.displayInfo());
+
+        Product product3 = new Product("Бутылка с водой (3)", 150);
+        System.out.println(product3.displayInfo());
+
+        Product bottleOfWater =
+                new BottleOfWater("ООО Источник", "Бутылка с водой (4)", 250, 1.5);
+        System.out.println(bottleOfWater.displayInfo());
+
+        Product chocolate1 = new Chocolate("ООО Нестле", "Киндер(1)", 150, 543, 11 );
+        Product chocolate2 = new Chocolate("ООО Нестле", "КиндерПингви(1)", 100, 659, 10 );
+        Product chocolate3 = new Chocolate("ООО Нестле", "Киндер Яйцо(1)", 200, 501, 17 );
+        Product chocolate4 = new Chocolate("ООО Нестле", "Киндер Молочный(1)", 120, 423, 12 );
+
+        ArrayList<Product> products = new ArrayList<>();
+        products.add(bottleOfWater);
+        products.add(chocolate1);
+        products.add(chocolate2);
+        products.add(chocolate3);
+        products.add(chocolate4);
+
+        VendingMachine vendingMachine = new VendingMachine(products);
+
+        Chocolate chocolate = vendingMachine.getChocolate (543, 11);
+//        Chocolate chocolate = vendingMachine.getChocolate (540, 11);
+//
+        if (chocolate == null){
+            System.out.println("Такого товара нет в автомате.");
+        }
+        else {
+            System.out.println("Вы купили:");
+            System.out.println(chocolate.displayInfo());
+        }
+
+    }
+
+}
